@@ -1,5 +1,25 @@
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import './Skills.css';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -15,18 +35,46 @@ const Skills = () => {
   return (
     <section className="section skills" id="skills">
       <div className="container">
-        <h2 className="section-title">{t('skills.title')}</h2>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
+          {t('skills.title')}
+        </motion.h2>
         
         <div className="skills-grid">
-          {skillCategories.map(category => (
-            <div key={category.key} className="skill-category">
+          {skillCategories.map((category, index) => (
+            <motion.div 
+              key={category.key} 
+              className="skill-category"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <h3 className="category-title">{category.title}</h3>
-              <div className="chips-container">
+              <motion.div 
+                className="chips-container"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
                 {category.items.map((item, index) => (
-                  <span key={index} className="chip">{item}</span>
+                  <motion.span 
+                    key={index} 
+                    className="chip"
+                    variants={chipVariants}
+                    whileHover={{ scale: 1.05, backgroundColor: "var(--color-primary)", color: "var(--color-background)" }}
+                  >
+                    {item}
+                  </motion.span>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

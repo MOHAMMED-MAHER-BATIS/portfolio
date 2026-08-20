@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import "./Experience.css";
 
 const Experience = () => {
@@ -8,9 +9,23 @@ const Experience = () => {
   return (
     <section className="section experience" id="experience">
       <div className="container">
-        <h2 className="section-title">{t("experience.title")}</h2>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
+          {t("experience.title")}
+        </motion.h2>
 
-        <div className="experience-card">
+        <motion.div 
+          className="experience-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div className="experience-header">
             <div>
               <h3 className="role">{t("experience.aqwas.role")}</h3>
@@ -30,7 +45,7 @@ const Experience = () => {
                 </li>
               ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

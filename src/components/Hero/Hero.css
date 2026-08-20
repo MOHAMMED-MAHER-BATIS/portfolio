@@ -41,11 +41,13 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s ease;
+  display: inline-block;
 }
 
 .social-links-hero a:hover {
   color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 .hero-content {

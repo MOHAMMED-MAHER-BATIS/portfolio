@@ -10,8 +10,14 @@
   border: 1px solid var(--color-border);
   padding: 2rem;
   background-color: var(--color-background);
-  transition: background-color 0.3s ease;
-  border-radius: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
 }
 
 .experience-header {

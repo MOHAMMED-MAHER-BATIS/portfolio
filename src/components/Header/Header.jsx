@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Header.css";
 
 const SunIcon = () => (
@@ -80,7 +81,12 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <motion.header 
+      className="header"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+    >
       <div className="container header-container">
         <nav className="nav-links">
           <a href="#experience">{t("experience.title")}</a>
@@ -97,48 +103,56 @@ const Header = () => {
             >
               <GearIcon />
             </button>
-            {isDropdownOpen && (
-              <div className="dropdown-menu">
-                <button
-                  className="dropdown-item"
-                  onClick={() => {
-                    toggleTheme();
-                    setIsDropdownOpen(false);
-                  }}
+            <AnimatePresence>
+              {isDropdownOpen && (
+                <motion.div 
+                  className="dropdown-menu"
+                  initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                 >
-                  <span className="dropdown-icon">
-                    {theme === "light" ? <MoonIcon /> : <SunIcon />}
-                  </span>
-                  <span className="dropdown-text">
-                    {theme === "light"
-                      ? i18n.language === "en"
-                        ? "Dark Mode"
-                        : "الوضع الداكن"
-                      : i18n.language === "en"
-                        ? "Light Mode"
-                        : "الوضع الفاتح"}
-                  </span>
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={() => {
-                    toggleLanguage();
-                    setIsDropdownOpen(false);
-                  }}
-                >
-                  <span className="dropdown-icon">
-                    <TranslateIcon />
-                  </span>
-                  <span className="dropdown-text">
-                    {i18n.language === "en" ? "عربي" : "English"}
-                  </span>
-                </button>
-              </div>
-            )}
+                  <button
+                    className="dropdown-item"
+                    onClick={() => {
+                      toggleTheme();
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    <span className="dropdown-icon">
+                      {theme === "light" ? <MoonIcon /> : <SunIcon />}
+                    </span>
+                    <span className="dropdown-text">
+                      {theme === "light"
+                        ? i18n.language === "en"
+                          ? "Dark Mode"
+                          : "الوضع الداكن"
+                        : i18n.language === "en"
+                          ? "Light Mode"
+                          : "الوضع الفاتح"}
+                    </span>
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => {
+                      toggleLanguage();
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    <span className="dropdown-icon">
+                      <TranslateIcon />
+                    </span>
+                    <span className="dropdown-text">
+                      {i18n.language === "en" ? "عربي" : "English"}
+                    </span>
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
