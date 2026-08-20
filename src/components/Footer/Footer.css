@@ -1,0 +1,17 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 3rem 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright {
+  font: var(--text-label-sm);
+  color: var(--color-secondary);
+  text-transform: uppercase;
+}

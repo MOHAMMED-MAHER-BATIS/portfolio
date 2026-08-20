@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -7,26 +9,77 @@
 }
 
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Light Theme Variables (Default) */
+  --color-primary: #002366;
+  --color-secondary: #64748b;
+  --color-background: #ffffff;
+  --color-surface: #f4f3f9;
+  --color-text: #1a1b20;
+  --color-border: #64748b;
+  --color-accent: #3b82f6;
+  --color-chip-bg: rgba(0, 35, 102, 0.05);
+  --color-header-bg: rgba(255, 255, 255, 0.85);
 
-  color-scheme: light dark;
-  color: #213547;
-  background-color: #ffffff;
+  /* Typography */
+  --font-family-en: "IBM Plex Sans", sans-serif;
+  --font-family-ar: "IBM Plex Sans Arabic", sans-serif;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Desktop Typography */
+  --text-display-lg: 700 64px/1.1 var(--font-family-en);
+  --text-headline-lg: 600 40px/1.2 var(--font-family-en);
+  --text-title-md: 600 24px/1.4 var(--font-family-en);
+  --text-body-lg: 400 18px/1.6 var(--font-family-en);
+  --text-body-md: 400 16px/1.6 var(--font-family-en);
+  --text-label-sm: 600 12px/1 var(--font-family-en);
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+  --spacing-section-gap: 60px;
+  --bg-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35'%3E%3Ctext x='50%25' y='50%25' font-family='monospace' font-size='14' font-weight='bold' fill='rgba(0,35,102,0.08)' text-anchor='middle' dominant-baseline='middle'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f3f4f6;
-    background-color: #0f172a;
-  }
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --color-primary: #ffffff;
+  --color-secondary: #b3c5ff;
+  --color-background: #001b44;
+  --color-surface: #002366;
+  --color-text: #f1f0f6;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-accent: #3b82f6;
+  --color-chip-bg: rgba(255, 255, 255, 0.1);
+  --color-header-bg: rgba(0, 27, 68, 0.85);
+  --bg-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35'%3E%3Ctext x='50%25' y='50%25' font-family='monospace' font-size='14' font-weight='bold' fill='rgba(255,255,255,0.05)' text-anchor='middle' dominant-baseline='middle'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E");
+}
+
+/* RTL Specific adjustments */
+[dir="rtl"] {
+  --text-display-lg: 700 64px/1.1 var(--font-family-ar);
+  --text-headline-lg: 600 40px/1.2 var(--font-family-ar);
+  --text-title-md: 600 24px/1.4 var(--font-family-ar);
+  --text-body-lg: 400 18px/1.6 var(--font-family-ar);
+  --text-body-md: 400 16px/1.6 var(--font-family-ar);
+  --text-label-sm: 700 12px/1 var(--font-family-ar);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  font-family: var(--font-family-en);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  background-image: var(--bg-pattern);
+  background-repeat: repeat;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+[dir="rtl"] html {
+  font-family: var(--font-family-ar);
 }
 
 body {
@@ -38,4 +91,52 @@ body {
 #root {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-margin-mobile);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-margin-desktop);
+  }
+}
+
+/* Base element styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Utilities */
+.section {
+  padding-top: var(--spacing-section-gap);
+  padding-bottom: 20px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-border);
+  width: 100%;
+  margin: 2rem 0;
 }

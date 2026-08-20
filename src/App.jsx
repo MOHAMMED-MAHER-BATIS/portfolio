@@ -1,9 +1,23 @@
+import { ThemeProvider } from './context/ThemeContext';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import Experience from './components/Experience/Experience';
+import Projects from './components/Projects/Projects';
+import Education from './components/Education/Education';
+import Skills from './components/Skills/Skills';
+import Footer from './components/Footer/Footer';
+
 function App() {
   return (
-    <main className="app">
-      <h1>Portfolio</h1>
-      <p>Welcome to your React + Vite project.</p>
-    </main>
+    <ThemeProvider>
+      <Header />
+      <Hero />
+      <Experience />
+      <Projects />
+      <Education />
+      <Skills />
+      <Footer />
+    </ThemeProvider>
   );
 }
 

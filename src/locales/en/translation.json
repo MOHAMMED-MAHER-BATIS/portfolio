@@ -1,0 +1,72 @@
+{
+  "header": {
+    "name": "MOHAMMED MAHER BATIS"
+  },
+  "summary": {
+    "title": "Professional Summary",
+    "p1": "Software Engineer experienced in managing the end-to-end development of scalable web applications.",
+    "p2": "Progressed from an intern to a core team member at <a href=\"https://www.aqwas.sa/ar\" target=\"_blank\" rel=\"noopener noreferrer\">AQWAS</a>, successfully delivering high-impact initiatives like the Discover Aseer national tourism portal.",
+    "p3": "Proven ability to collaborate with cross-functional teams, translate complex business requirements into intuitive digital products, and leverage intelligent solutions to solve real-world challenges and elevate user experiences."
+  },
+  "education": {
+    "title": "Education",
+    "degree": "B.S. in Computer Science",
+    "university": "Arab Open University",
+    "location": "Saudi Arabia, Riyadh",
+    "date": "May 2026",
+    "gpa": "GPA: 3.05/4.0",
+    "coursework": "Coursework: Software Engineering, Operating Systems, Artificial Intelligence, Algorithms, Data Structures, ObjectOriented Programming, Data Management and Analysis"
+  },
+  "experience": {
+    "title": "Experience",
+    "aqwas": {
+      "role": "Software Engineer",
+      "company": "AQWAS",
+      "location": "Saudi Arabia, Riyadh",
+      "date": "Feb 2026 - Present",
+      "bullets": [
+        "Engineered the 'Al Travel Planner' utilizing the Anthropic (Claude) API, delivering personalized, LLM-driven itineraries that optimize the tourist experience.",
+        "Architected frontend integrations by mapping high-fidelity Figma designs (via HeroUI) directly to a headless CMS (Directus), ensuring seamless content delivery and dynamic data rendering.",
+        "Lead ongoing production maintenance and scaling efforts; actively collaborating with cross-functional teams to troubleshoot complex system bugs, optimize web performance, and deploy new features.",
+        "Developed an automated document generation platform using Next.js and the OpenAI API, streamlining administrative workflows for employees.",
+        "Configured scalable backend infrastructure utilizing Firebase for real-time database management and secure user authentication."
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "view_project": "View Project",
+    "feedanalysis": {
+      "name": "FeedAnalysis | Al-Powered Feedback Monitoring System",
+      "date": "Feb. 2026 - Mar. 2026",
+      "status": "Open Project",
+      "bullets": [
+        "Engineered a full-stack web application leveraging Next.js and Firebase to automate the collection, storage, and analysis of customer reviews.",
+        "Integrated the Gemini API as a real-time Al processing engine to perform sentiment classification, generate text summaries, and extract actionable business strengths and weaknesses.",
+        "Designed a secure administrative dashboard utilizing Recharts and React Table to visualize KPIs and provide business insights through interactive, filterable data representations."
+      ]
+    },
+    "recipe": {
+      "name": "Al Recipe Assistant | Smart Culinary Web App",
+      "date": "Oct. 2025 - Nov. 2025",
+      "status": "Open Project",
+      "bullets": [
+        "Built a responsive frontend application using React and Vite that dynamically generates customized recipes based on user-provided ingredients.",
+        "Integrated the Hugging Face Inference API for Al-driven content generation, utilizing react-markdown to ensure clean, dynamic text rendering and formatting."
+      ]
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "languages": "Programming Languages",
+    "languages_list": "TypeScript, JavaScript, Python, Java",
+    "frontend": "Frontend & UI",
+    "frontend_list": "React, Next.js, Tailwind CSS, HeroUI, HTML, CSS",
+    "backend": "Backend & CMS",
+    "backend_list": "Firebase, Directus CMS",
+    "ai": "Al Integration (APIs)",
+    "ai_list": "OpenAl API, Anthropic (Claude) API, Gemini API, Hugging Face",
+    "tools": "Al-Assisted Development & Tools",
+    "tools_list": "GitHub Copilot, Al-Driven IDEs (Antigravity), CLI Automation, Git/GitHub, Figma, Docker, CI-CD-Pipeline, GitHub Action"
+  }
+}
