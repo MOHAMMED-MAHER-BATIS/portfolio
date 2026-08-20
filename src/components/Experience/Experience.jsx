@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import "./Experience.css";
 import TypewriterText from "../TypewriterText/TypewriterText";
+import aqwasLogo from "../../assets/aqwas-logo.svg";
 
 const Experience = () => {
   const { t } = useTranslation();
@@ -28,9 +29,31 @@ const Experience = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="experience-header">
-            <div>
-              <h3 className="role">{t("experience.aqwas.role")}</h3>
-              <p className="company">{t("experience.aqwas.company")}</p>
+            <div className="experience-company-wrapper">
+              <a
+                href="https://www.aqwas.sa/ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="company-logo-badge"
+                title={t("experience.aqwas.company")}
+              >
+                <img
+                  src={aqwasLogo}
+                  alt={t("experience.aqwas.company")}
+                  className="company-logo-img"
+                />
+              </a>
+              <div className="experience-title-group">
+                <h3 className="role">{t("experience.aqwas.role")}</h3>
+                <a
+                  href="https://www.aqwas.sa/ar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="company"
+                >
+                  {t("experience.aqwas.company")}
+                </a>
+              </div>
             </div>
             <div className="experience-meta">
               <span className="location">{t("experience.aqwas.location")}</span>

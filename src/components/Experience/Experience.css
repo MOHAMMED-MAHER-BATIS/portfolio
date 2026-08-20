@@ -10,7 +10,10 @@
   border: 1px solid var(--color-border);
   padding: 2rem;
   background-color: var(--color-background);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   border-radius: 12px;
 }
 
@@ -26,12 +29,52 @@
   align-items: flex-start;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.experience-company-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.company-logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 8px 14px;
+  background-color: #06152d;
+  border-radius: 12px;
+  border: 1px solid rgba(49, 191, 158, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.experience-card:hover .company-logo-badge {
+  transform: translateY(-2px) scale(1.03);
+  border-color: #31bf9e;
+  box-shadow: 0 6px 18px rgba(49, 191, 158, 0.2);
+}
+
+.company-logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.experience-title-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .role {
   font: var(--text-title-md);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .company {
@@ -39,6 +82,12 @@
   color: var(--color-secondary);
   font-weight: 600;
   text-transform: uppercase;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.company:hover {
+  color: var(--color-accent);
 }
 
 .experience-meta {
@@ -103,8 +152,22 @@
 
   .experience-header {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     margin-bottom: 1.25rem;
+  }
+
+  .experience-company-wrapper {
+    gap: 0.875rem;
+  }
+
+  .company-logo-badge {
+    height: 46px;
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+
+  .company-logo-img {
+    height: 22px;
   }
 
   .experience-meta {

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "./Hero.css";
 import profilePic from "../../assets/DSC_0774.jpg.jpeg";
 import TypewriterText from "../TypewriterText/TypewriterText";
+import cvPdf from "../../assets/MOHAMMED BATIS CV.pdf";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +27,15 @@ const itemVariants = {
 
 const Hero = () => {
   const { t } = useTranslation();
+  const rawRoles = t("summary.roles", { returnObjects: true });
+  const roles = Array.isArray(rawRoles)
+    ? rawRoles
+    : [
+        "Computer Science",
+        "Software Engineer",
+        "Web Developer",
+        "AI Integration Specialist",
+      ];
 
   return (
     <section className="section hero" id="hero">
@@ -57,6 +67,18 @@ const Hero = () => {
 
         <motion.div className="hero-content" variants={itemVariants}>
           <h2 className="summary-title">{t("summary.title")}</h2>
+
+          <div className="hero-roles-container">
+            <div className="hero-roles-track">
+              {[...roles, ...roles, ...roles].map((role, idx) => (
+                <div key={idx} className="hero-role-cell">
+                  <span className="role-dot"></span>
+                  <span className="role-text">{role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <p className="hero-text">{t("summary.p1")}</p>
           <p
             className="hero-text"
@@ -65,36 +87,63 @@ const Hero = () => {
           <p className="hero-text">{t("summary.p3")}</p>
         </motion.div>
 
-        <motion.div className="social-links-hero" variants={itemVariants}>
+        <motion.div className="hero-actions" variants={itemVariants}>
           <a
-            href="mailto:mohammed.batis.dev@gmail.com"
+            href={cvPdf}
+            download="MOHAMMED_BATIS_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            className="btn-download-cv"
           >
-            Email
+            <svg
+              className="btn-download-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>{t("header.download_cv")}</span>
           </a>
-          <a
-            href="https://www.linkedin.com/in/mohammed-batis/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/MOHAMMED-MAHER-BATIS"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a
-            href="tel:+966535669941"
-            target="_blank"
-            rel="noopener noreferrer"
-            dir="ltr"
-          >
-            +966 53 566 9941
-          </a>
+
+          <div className="social-links-hero">
+            <a
+              href="mailto:mohammed.batis.dev@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mohammed-batis/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/MOHAMMED-MAHER-BATIS"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              href="tel:+966535669941"
+              target="_blank"
+              rel="noopener noreferrer"
+              dir="ltr"
+            >
+              +966 53 566 9941
+            </a>
+          </div>
         </motion.div>
       </motion.div>
     </section>

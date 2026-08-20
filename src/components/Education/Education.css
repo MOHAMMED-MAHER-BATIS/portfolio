@@ -2,7 +2,10 @@
   border: 1px solid var(--color-border);
   padding: 2rem;
   background-color: var(--color-background);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   border-radius: 12px;
 }
 
@@ -18,12 +21,46 @@
   align-items: flex-start;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.education-institution {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.education-logo-wrapper {
+  width: 62px;
+  height: 62px;
+  min-width: 62px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.education-card:hover .education-logo-wrapper {
+  transform: scale(1.04);
+  border-color: var(--color-primary);
+}
+
+.education-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .degree {
   font: var(--text-title-md);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .university {

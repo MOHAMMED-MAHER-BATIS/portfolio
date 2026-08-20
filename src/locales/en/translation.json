@@ -1,9 +1,16 @@
 {
   "header": {
-    "name": "MOHAMMED MAHER BATIS"
+    "name": "MOHAMMED MAHER BATIS",
+    "download_cv": "Download CV"
   },
   "summary": {
     "title": "Professional Summary",
+    "roles": [
+      "Computer Science",
+      "Software Engineer",
+      "Web Developer",
+      "AI Integration Specialist"
+    ],
     "p1": "Software Engineer experienced in managing the end-to-end development of scalable web applications.",
     "p2": "Progressed from an intern to a core team member at <a href=\"https://www.aqwas.sa/ar\" target=\"_blank\" rel=\"noopener noreferrer\">AQWAS</a>, successfully delivering high-impact initiatives like the Discover Aseer national tourism portal.",
     "p3": "Proven ability to collaborate with cross-functional teams, translate complex business requirements into intuitive digital products, and leverage intelligent solutions to solve real-world challenges and elevate user experiences."
