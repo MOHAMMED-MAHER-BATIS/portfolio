@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Header.css";
 
 const SunIcon = () => (
@@ -27,16 +27,56 @@ const MoonIcon = () => (
   </svg>
 );
 
+const GearIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
+  >
+    <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm112-260q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99 41t-40 99q0 58 40 99t99 41Zm0-80q-25 0-42.5-17.5T422-480q0-25 17.5-42.5T482-540q25 0 42.5 17.5T542-480q0 25-17.5 42.5T482-420Z" />
+  </svg>
+);
+
+const TranslateIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
+  >
+    <path d="m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q36-36 68-79t46-93H120v-80h280v-80h80v80h280v80H532q-16 63-54 118.5T386-444l112 112-56 56-112-112-170 188Zm466-76h190l-95-268-95 268Z" />
+  </svg>
+);
+
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
   }, [i18n.language]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === "en" ? "ar" : "en");
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -49,16 +89,53 @@ const Header = () => {
           <a href="#skills">{t("skills.title")}</a>
         </nav>
         <div className="controls">
-          <button
-            className="control-btn"
-            onClick={toggleTheme}
-            aria-label="Toggle Theme"
-          >
-            {theme === "light" ? <MoonIcon /> : <SunIcon />}
-          </button>
-          <button className="control-btn lang-btn" onClick={toggleLanguage}>
-            {i18n.language === "en" ? "عربي" : "EN"}
-          </button>
+          <div className="dropdown-container" ref={dropdownRef}>
+            <button
+              className={`control-btn ${isDropdownOpen ? "active" : ""}`}
+              onClick={toggleDropdown}
+              aria-label="Settings"
+            >
+              <GearIcon />
+            </button>
+            {isDropdownOpen && (
+              <div className="dropdown-menu">
+                <button
+                  className="dropdown-item"
+                  onClick={() => {
+                    toggleTheme();
+                    setIsDropdownOpen(false);
+                  }}
+                >
+                  <span className="dropdown-icon">
+                    {theme === "light" ? <MoonIcon /> : <SunIcon />}
+                  </span>
+                  <span className="dropdown-text">
+                    {theme === "light"
+                      ? i18n.language === "en"
+                        ? "Dark Mode"
+                        : "الوضع الداكن"
+                      : i18n.language === "en"
+                        ? "Light Mode"
+                        : "الوضع الفاتح"}
+                  </span>
+                </button>
+                <button
+                  className="dropdown-item"
+                  onClick={() => {
+                    toggleLanguage();
+                    setIsDropdownOpen(false);
+                  }}
+                >
+                  <span className="dropdown-icon">
+                    <TranslateIcon />
+                  </span>
+                  <span className="dropdown-text">
+                    {i18n.language === "en" ? "عربي" : "English"}
+                  </span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
