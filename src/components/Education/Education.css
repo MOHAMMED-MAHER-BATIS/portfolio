@@ -54,3 +54,19 @@
   font: var(--text-body-md);
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .education-card {
+    padding: 1.25rem;
+  }
+
+  .education-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .education-meta {
+    align-items: flex-start !important;
+  }
+}

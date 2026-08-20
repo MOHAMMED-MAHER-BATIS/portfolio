@@ -69,3 +69,32 @@
 .hero-text a:hover {
   color: var(--color-primary);
 }
+
+@media (max-width: 768px) {
+  .hero-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .summary-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-links-hero {
+    gap: 1rem 1.5rem;
+  }
+}

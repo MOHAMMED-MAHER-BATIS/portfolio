@@ -18,17 +18,19 @@
 
 .project-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 1rem;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .project-name {
   font: var(--text-title-md);
   color: var(--color-primary);
-  flex: 1;
+}
+
+.project-link-wrapper {
+  margin-top: 0.25rem;
 }
 
 .project-status {
@@ -41,7 +43,7 @@
 }
 
 .project-meta {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .project-list {
@@ -88,4 +90,14 @@
 [dir="rtl"] .project-item::before {
   left: auto;
   right: 0;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 1.25rem;
+  }
+  
+  .project-name {
+    font-size: 1.2rem;
+  }
 }
