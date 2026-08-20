@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import "./Experience.css";
+import TypewriterText from "../TypewriterText/TypewriterText";
 
 const Experience = () => {
   const { t } = useTranslation();
@@ -9,17 +10,17 @@ const Experience = () => {
   return (
     <section className="section experience" id="experience">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
         >
-          {t("experience.title")}
+          <TypewriterText text={t("experience.title")} delayOffset={0.2} />
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="experience-card"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

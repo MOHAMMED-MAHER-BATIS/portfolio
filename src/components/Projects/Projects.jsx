@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import "./Projects.css";
+import TypewriterText from "../TypewriterText/TypewriterText";
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -27,25 +28,29 @@ const Projects = () => {
   return (
     <section className="section projects" id="projects">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
         >
-          {t("projects.title")}
+          <TypewriterText text={t("projects.title")} delayOffset={0.2} />
         </motion.h2>
 
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <motion.div 
-              key={project.key} 
+            <motion.div
+              key={project.key}
               className="project-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
             >
               <div className="project-header">
                 <h3 className="project-name">{project.name}</h3>

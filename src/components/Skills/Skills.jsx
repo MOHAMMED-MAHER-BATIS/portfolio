@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import './Skills.css';
+import TypewriterText from "../TypewriterText/TypewriterText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,7 +43,7 @@ const Skills = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
         >
-          {t('skills.title')}
+          <TypewriterText text={t('skills.title')} delayOffset={0.2} />
         </motion.h2>
         
         <div className="skills-grid">

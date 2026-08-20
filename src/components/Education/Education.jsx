@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import './Education.css';
+import TypewriterText from "../TypewriterText/TypewriterText";
 
 const Education = () => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ const Education = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
         >
-          {t('education.title')}
+          <TypewriterText text={t('education.title')} delayOffset={0.2} />
         </motion.h2>
         
         <motion.div 

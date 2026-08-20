@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import "./Hero.css";
 import profilePic from "../../assets/DSC_0774.jpg.jpeg";
+import TypewriterText from "../TypewriterText/TypewriterText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,7 +29,7 @@ const Hero = () => {
 
   return (
     <section className="section hero" id="hero">
-      <motion.div 
+      <motion.div
         className="container"
         variants={containerVariants}
         initial="hidden"
@@ -50,7 +51,7 @@ const Hero = () => {
             }}
           />
           <motion.h1 className="hero-title" variants={itemVariants}>
-            {t("header.name")}
+            <TypewriterText text={t("header.name")} delayOffset={0.5} />
           </motion.h1>
         </div>
 
