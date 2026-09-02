@@ -31,18 +31,36 @@
       "company": "AQWAS",
       "location": "Saudi Arabia, Riyadh",
       "date": "Feb 2026 - Present",
+      "description": "As a Software Engineer at AQWAS, I contributed to the end-to-end development of dynamic web applications, focusing on delivering scalable and user-centric digital solutions:",
       "bullets": [
-        "Engineered the 'Al Travel Planner' utilizing the Anthropic (Claude) API, delivering personalized, LLM-driven itineraries that optimize the tourist experience.",
-        "Architected frontend integrations by mapping high-fidelity Figma designs (via HeroUI) directly to a headless CMS (Directus), ensuring seamless content delivery and dynamic data rendering.",
-        "Lead ongoing production maintenance and scaling efforts; actively collaborating with cross-functional teams to troubleshoot complex system bugs, optimize web performance, and deploy new features.",
-        "Developed an automated document generation platform using Next.js and the OpenAI API, streamlining administrative workflows for employees.",
-        "Configured scalable backend infrastructure utilizing Firebase for real-time database management and secure user authentication."
+        "Product Development: Engineered responsive, high-performance web applications using Next.js and Tailwind CSS, prioritizing modern UI/UX standards to enhance user engagement.",
+        "Scalable Architecture: Integrated robust backend services via Firebase (BaaS) to manage cloud data, secure user authentication, and support core application logic.",
+        "Agile Delivery & Collaboration: Collaborated effectively within cross-functional teams to drive project milestones, utilizing Agile methodologies and Jira to ensure timely product delivery.",
+        "Quality Assurance: Maintained high standards of code health through GitHub version control, active code reviews, and proactive technical problem-solving.",
+        "Performance Optimization: Continuously monitored, debugged, and optimized system components to maximize application speed, reliability, and overall user satisfaction."
       ]
     }
   },
   "projects": {
     "title": "Projects",
     "view_project": "View Project",
+    "discover_aseer": {
+      "name": "Discover Aseer",
+      "date": "Feb 2026",
+      "status": "Production",
+      "bullets": [
+        "Served as a core developer in building the \"Discover Aseer\" platform, aimed at providing an interactive digital experience to explore the region.",
+        "Contributed to full-stack development, actively working on both Backend and Frontend architectures.",
+        "Engineered the \"AI Planner\" feature, utilizing Artificial Intelligence to help visitors generate smart, customized tourist itineraries.",
+        "Built interactive and highly responsive frontend components, focusing on speed, performance, and seamless user experience.",
+        "Designed data models and engineered relationships to dynamically integrate a Headless CMS architecture.",
+        "Debugged and resolved complex technical issues to ensure seamless data flow and integration between the CMS and frontend interfaces.",
+        "Implemented secure authentication flows, account recovery, and cloud email integrations.",
+        "Optimized page loading speeds, media processing, and ensured cross-device compatibility.",
+        "Collaborated closely with the UI/UX design team (via Figma) and the Quality Assurance (QA) team to ensure high-fidelity implementation.",
+        "Contributed to cross-functional teamwork throughout all project phases to deliver a highly robust digital product."
+      ]
+    },
     "feedanalysis": {
       "name": "FeedAnalysis | Al-Powered Feedback Monitoring System",
       "date": "Feb. 2026 - Mar. 2026",

@@ -1,12 +1,35 @@
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
 import TypewriterText from "../TypewriterText/TypewriterText";
 
+import aseerImg1 from "../../assets/AseerProject/1.webp";
+import aseerImg2 from "../../assets/AseerProject/2.webp";
+import aseerImg3 from "../../assets/AseerProject/3.webp";
+
 const Projects = () => {
   const { t } = useTranslation();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3); // Assumes max 3 images for now
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const projects = [
+    {
+      key: "discover_aseer",
+      name: t("projects.discover_aseer.name"),
+      date: t("projects.discover_aseer.date"),
+      status: t("projects.discover_aseer.status"),
+      bullets: t("projects.discover_aseer.bullets", { returnObjects: true }),
+      images: [aseerImg1, aseerImg2, aseerImg3],
+      link: "https://discoveraseer.com/ar",
+      isMain: true,
+    },
     {
       key: "feedanalysis",
       name: t("projects.feedanalysis.name"),
@@ -42,7 +65,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.key}
-              className="project-card"
+              className={`project-card ${project.isMain ? "project-card-main" : ""}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -52,32 +75,52 @@ const Projects = () => {
                 delay: index * 0.1,
               }}
             >
-              <div className="project-header">
-                <h3 className="project-name">{project.name}</h3>
-                {project.link && (
-                  <div className="project-link-wrapper">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link-btn"
-                    >
-                      {t("projects.view_project")}
-                    </a>
-                  </div>
-                )}
+              {project.images && project.images.length > 0 && (
+                <div className="project-image-container">
+                  <AnimatePresence>
+                    <motion.div
+                      key={currentImageIndex}
+                      className="project-carousel-image"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      style={{
+                        backgroundImage: `url(${project.images[currentImageIndex]})`,
+                      }}
+                    />
+                  </AnimatePresence>
+                </div>
+              )}
+
+              <div className="project-content">
+                <div className="project-header">
+                  <h3 className="project-name">{project.name}</h3>
+                  {project.link && (
+                    <div className="project-link-wrapper">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link-btn"
+                      >
+                        {t("projects.view_project")}
+                      </a>
+                    </div>
+                  )}
+                </div>
+                <div className="project-meta">
+                  <span className="date">{project.date}</span>
+                </div>
+                <ul className="project-list">
+                  {Array.isArray(project.bullets) &&
+                    project.bullets.map((bullet, idx) => (
+                      <li key={idx} className="project-item">
+                        {bullet}
+                      </li>
+                    ))}
+                </ul>
               </div>
-              <div className="project-meta">
-                <span className="date">{project.date}</span>
-              </div>
-              <ul className="project-list">
-                {Array.isArray(project.bullets) &&
-                  project.bullets.map((bullet, index) => (
-                    <li key={index} className="project-item">
-                      {bullet}
-                    </li>
-                  ))}
-              </ul>
             </motion.div>
           ))}
         </div>

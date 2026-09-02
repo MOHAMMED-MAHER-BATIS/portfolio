@@ -6,6 +6,7 @@ import aqwasLogo from "../../assets/aqwas-logo.svg";
 
 const Experience = () => {
   const { t } = useTranslation();
+  const description = t("experience.aqwas.description", { defaultValue: "" });
   const bullets = t("experience.aqwas.bullets", { returnObjects: true });
 
   return (
@@ -60,6 +61,10 @@ const Experience = () => {
               <span className="date">{t("experience.aqwas.date")}</span>
             </div>
           </div>
+
+          {description && (
+            <p className="experience-description">{description}</p>
+          )}
 
           <ul className="experience-list">
             {Array.isArray(bullets) &&

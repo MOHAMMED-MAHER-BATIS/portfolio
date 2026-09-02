@@ -14,8 +14,13 @@
   border: 1px solid var(--color-border);
   padding: 2rem;
   background-color: var(--color-background);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   border-radius: 12px;
+  position: relative;
+  overflow: hidden;
 }
 
 .project-card:hover {
@@ -104,8 +109,95 @@
   .project-card {
     padding: 1.25rem;
   }
-  
+
   .project-name {
     font-size: 1.2rem;
   }
+}
+
+/* Main Project Card Styles */
+.project-card-main {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-main .project-content {
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .project-card-main .project-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-card-main {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    height: 450px;
+  }
+  .project-card-main .project-content {
+    padding: 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+
+  /* Scrollbar styles for the content */
+  .project-card-main .project-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  .project-card-main .project-content::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 4px;
+  }
+  .project-card-main .project-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.project-image-container {
+  width: 100%;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .project-image-container {
+    height: 100%;
+    min-height: auto;
+  }
+
+  /* Default (LTR) - Image Left, Text Right */
+  .project-image-container {
+    order: 1;
+  }
+  .project-card-main .project-content {
+    order: 2;
+  }
+
+  /* RTL - Image Left, Text Right */
+  [dir="rtl"] .project-image-container {
+    order: 2;
+  }
+  [dir="rtl"] .project-card-main .project-content {
+    order: 1;
+  }
+}
+
+.project-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
