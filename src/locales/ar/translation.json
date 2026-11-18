@@ -17,12 +17,16 @@
   },
   "education": {
     "title": "التعليم",
-    "degree": "بكالوريوس في علوم الحاسب",
+    "degree": "بكالوريوس تقنية المعلومات والحوسبة",
     "university": "الجامعة العربية المفتوحة",
     "location": "المملكة العربية السعودية، الرياض",
-    "date": "مايو 2026",
-    "gpa": "المعدل: 3.05/4.0",
-    "coursework": "المقررات الدراسية: هندسة البرمجيات، أنظمة التشغيل، الذكاء الاصطناعي، الخوارزميات، هياكل البيانات، البرمجة كائنية التوجه، إدارة وتحليل البيانات"
+    "date": "15 يوليو 2026",
+    "gpa": "المعدل التراكمي: 3.05 من 4.0",
+    "coursework": "المقررات الدراسية: هندسة البرمجيات، أنظمة التشغيل، الذكاء الاصطناعي، الخوارزميات، هياكل البيانات، البرمجة كائنية التوجه، إدارة وتحليل البيانات",
+    "certificate_title": "وثيقة التخرج",
+    "certificate_details": "كلية دراسات الحاسب الآلي · الفصل الدراسي الثاني 2025/2026",
+    "certificate_alt": "وثيقة تخرج محمد ماهر سالم باتيس من الجامعة العربية المفتوحة",
+    "view_certificate": "عرض الشهادة كاملة"
   },
   "experience": {
     "title": "الخبرات العملية",
@@ -44,6 +48,7 @@
   "projects": {
     "title": "المشاريع",
     "view_project": "عرض المشروع",
+    "read_more": "اقرأ المزيد",
     "discover_aseer": {
       "name": "اكتشف عسير",
       "date": "فبراير 2026",
@@ -87,11 +92,13 @@
     "languages_list": "TypeScript, JavaScript, Python, Java",
     "frontend": "الواجهة الأمامية وتصميم واجهة المستخدم",
     "frontend_list": "React, Next.js, Tailwind CSS, HeroUI, HTML, CSS",
-    "backend": "الواجهة الخلفية وأنظمة إدارة المحتوى",
-    "backend_list": "Firebase, Directus CMS",
+    "backend": "الواجهة الخلفية وواجهات برمجة التطبيقات",
+    "backend_list": "Node.js, NestJS, REST APIs, API Design, Authentication & Authorization, OAuth 2.0, Input Validation, Caching",
     "ai": "تكامل الذكاء الاصطناعي (APIs)",
-    "ai_list": "OpenAl API, Anthropic (Claude) API, Gemini API, Hugging Face",
-    "tools": "التطوير والأدوات بمساعدة الذكاء الاصطناعي",
-    "tools_list": "GitHub Copilot, Al-Driven IDEs (Antigravity), CLI Automation, Git/GitHub, Figma, Docker, CI-CD-Pipeline, GitHub Action"
+    "ai_list": "OpenAI API, Anthropic Claude API, Gemini API, Hugging Face",
+    "tools": "الأدوات والتطوير والعمليات (DevOps)",
+    "tools_list": "Git, GitHub, Docker, GitHub Actions, CI/CD, Figma",
+    "databases_list": "PostgreSQL, Supabase, Firebase, Directus CMS",
+    "databases": "قواعد البيانات والخدمات"
   }
 }

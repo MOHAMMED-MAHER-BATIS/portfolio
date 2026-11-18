@@ -1,93 +1,25 @@
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "./Header.css";
 
 const SunIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24px"
-    viewBox="0 -960 960 960"
-    width="24px"
-    fill="currentColor"
-  >
-    <path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="currentColor"><path d="M14.13,14.13Q15,13.25 15,12T14.13,9.88T12,9T9.88,9.88T9,12t0.88,2.13T12,15t2.13-0.88ZM8.46,15.54Q7,14.08 7,12Q7,9.92 8.46,8.46T12,7t3.54,1.46T17,12t-1.46,3.54T12,17q-2.07,0-3.54-1.46ZM5,13H1V11H5v2Zm18,0H19V11h4v2ZM11,5V1h2V5H11Zm0,18V19h2v4H11ZM6.4,7.75L3.88,5.32L5.3,3.85l2.4,2.5L6.4,7.75Zm12.3,12.4l-2.42-2.52l1.32-1.38l2.52,2.43L18.7,20.15ZM16.25,6.4l2.43-2.52L20.15,5.3l-2.5,2.4l-1.4-1.3ZM3.85,18.7l2.53-2.43L7.75,17.6L5.33,20.13L3.85,18.7ZM12,12Z"/></svg>
 );
 
 const MoonIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24px"
-    viewBox="0 -960 960 960"
-    width="24px"
-    fill="currentColor"
-  >
-    <path d="M380-160q133 0 226.5-93.5T700-480q0-133-93.5-226.5T380-800h-21q-10 0-19 2 57 66 88.5 147.5T460-480q0 89-31.5 170.5T340-162q9 2 19 2h21Zm0 80q-53 0-103.5-13.5T180-134q93-54 146.5-146T380-480q0-108-53.5-200T180-826q46-27 96.5-40.5T380-880q83 0 156 31.5T663-763q54 54 85.5 127T780-480q0 83-31.5 156T663-197q-54 54-127 85.5T380-80Zm80-400Z" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="currentColor"><path d="M12,21q-3.75,0-6.38-2.63T3,12T5.63,5.63T12,3q0.35,0 0.69,0.02q0.34,0.02 0.66,0.07q-1.03,0.73-1.64,1.89T11.1,7.5q0,2.25 1.57,3.82T16.5,12.9q1.38,0 2.53-0.61t1.88-1.64q0.05,0.33 0.07,0.66T21,12q0,3.75-2.63,6.38T12,21Zm0-2q2.2,0 3.95-1.21t2.55-3.16q-0.5,0.13-1,0.2t-1,0.08q-3.07,0-5.24-2.16Q9.1,10.58 9.1,7.5q0-0.5 0.08-1t0.2-1Q7.43,6.3 6.21,8.05T5,12q0,2.9 2.05,4.95T12,19Zm-0.25-6.75Z"/></svg>
 );
 
-const GearIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24px"
-    viewBox="0 -960 960 960"
-    width="24px"
-    fill="currentColor"
-  >
-    <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm112-260q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99 41t-40 99q0 58 40 99t99 41Zm0-80q-25 0-42.5-17.5T422-480q0-25 17.5-42.5T482-540q25 0 42.5 17.5T542-480q0 25-17.5 42.5T482-420Z" />
-  </svg>
-);
-
-const TranslateIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24px"
-    viewBox="0 -960 960 960"
-    width="24px"
-    fill="currentColor"
-  >
-    <path d="m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q36-36 68-79t46-93H120v-80h280v-80h80v80h280v80H532q-16 63-54 118.5T386-444l112 112-56 56-112-112-170 188Zm466-76h190l-95-268-95 268Z" />
-  </svg>
-);
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
-  }, [i18n.language]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === "en" ? "ar" : "en");
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const isArabic = i18n.language === "ar";
 
   return (
-    <motion.header 
-      className="header"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-    >
-      <div className="container header-container">
+    <motion.header className="header" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20 }}>
+      <div className="container header-container" dir="rtl">
         <nav className="nav-links">
           <a href="#experience">{t("experience.title")}</a>
           <a href="#projects">{t("projects.title")}</a>
@@ -95,61 +27,28 @@ const Header = () => {
           <a href="#skills">{t("skills.title")}</a>
         </nav>
         <div className="controls">
-          <div className="dropdown-container" ref={dropdownRef}>
-            <button
-              className={`control-btn ${isDropdownOpen ? "active" : ""}`}
-              onClick={toggleDropdown}
-              aria-label="Settings"
-            >
-              <GearIcon />
-            </button>
-            <AnimatePresence>
-              {isDropdownOpen && (
-                <motion.div 
-                  className="dropdown-menu"
-                  initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                >
-                  <button
-                    className="dropdown-item"
-                    onClick={() => {
-                      toggleTheme();
-                      setIsDropdownOpen(false);
-                    }}
-                  >
-                    <span className="dropdown-icon">
-                      {theme === "light" ? <MoonIcon /> : <SunIcon />}
-                    </span>
-                    <span className="dropdown-text">
-                      {theme === "light"
-                        ? i18n.language === "en"
-                          ? "Dark Mode"
-                          : "الوضع الداكن"
-                        : i18n.language === "en"
-                          ? "Light Mode"
-                          : "الوضع الفاتح"}
-                    </span>
-                  </button>
-                  <button
-                    className="dropdown-item"
-                    onClick={() => {
-                      toggleLanguage();
-                      setIsDropdownOpen(false);
-                    }}
-                  >
-                    <span className="dropdown-icon">
-                      <TranslateIcon />
-                    </span>
-                    <span className="dropdown-text">
-                      {i18n.language === "en" ? "عربي" : "English"}
-                    </span>
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={!isArabic}
+            aria-label={isArabic ? "اللغة الإنجليزية" : "English language"}
+            className="nav-switch"
+            onClick={() => i18n.changeLanguage(isArabic ? "en" : "ar")}
+          >
+            <span className={isArabic ? "selected" : ""} lang="ar">ع</span>
+            <span className={isArabic ? "" : "selected"} lang="en">EN</span>
+          </button>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={theme === "dark"}
+            aria-label={isArabic ? "الوضع الداكن" : "Dark mode"}
+            className="nav-switch"
+            onClick={toggleTheme}
+          >
+            <span className={theme === "light" ? "selected" : ""} aria-hidden="true"><SunIcon /></span>
+            <span className={theme === "dark" ? "selected" : ""} aria-hidden="true"><MoonIcon /></span>
+          </button>
         </div>
       </div>
     </motion.header>

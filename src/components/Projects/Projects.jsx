@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
@@ -11,6 +11,7 @@ import aseerImg3 from "../../assets/AseerProject/3.webp";
 const Projects = () => {
   const { t } = useTranslation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [hasMoreAseerContent, setHasMoreAseerContent] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -93,7 +94,12 @@ const Projects = () => {
                 </div>
               )}
 
-              <div className="project-content">
+              <div className="project-content"
+                onScroll={project.isMain ? (event) => {
+                  const { scrollTop, scrollHeight, clientHeight } = event.currentTarget;
+                  setHasMoreAseerContent(scrollTop + clientHeight < scrollHeight - 8);
+                } : undefined}
+              >
                 <div className="project-header">
                   <h3 className="project-name">{project.name}</h3>
                   {project.link && (
@@ -121,6 +127,20 @@ const Projects = () => {
                     ))}
                 </ul>
               </div>
+              {project.isMain && hasMoreAseerContent && (
+                <button
+                  type="button"
+                  className="project-read-more"
+                  aria-label={t("projects.read_more")}
+                  onClick={(event) => {
+                    const content = event.currentTarget.parentElement.querySelector(".project-content");
+                    content.scrollBy({ top: 240, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+                  }}
+                >
+                  <span>{t("projects.read_more")}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8.03,22L6.25,20.23L14.48,12L6.25,3.77L8.03,2l10,10l-10,10Z" /></svg>
+                </button>
+              )}
             </motion.div>
           ))}
         </div>

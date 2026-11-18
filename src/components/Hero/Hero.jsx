@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "./Hero.css";
 import profilePic from "../../assets/DSC_0774.jpg.jpeg";
 import TypewriterText from "../TypewriterText/TypewriterText";
-import cvPdf from "../../assets/MOHAMMED BATIS CV V1.pdf";
+import cvPdf from "../../assets/MOHAMMED BATIS.pdf";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -90,7 +90,7 @@ const Hero = () => {
         <motion.div className="hero-actions" variants={itemVariants}>
           <a
             href={cvPdf}
-            download="MOHAMMED_BATIS_CV_V1.pdf"
+            download="MOHAMMED_BATIS_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-download-cv"

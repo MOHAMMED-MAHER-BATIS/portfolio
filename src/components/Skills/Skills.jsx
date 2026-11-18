@@ -29,6 +29,7 @@ const Skills = () => {
     { key: 'languages', title: t('skills.languages'), items: t('skills.languages_list').split(', ') },
     { key: 'frontend', title: t('skills.frontend'), items: t('skills.frontend_list').split(', ') },
     { key: 'backend', title: t('skills.backend'), items: t('skills.backend_list').split(', ') },
+    { key: 'databases', title: t('skills.databases'), items: t('skills.databases_list').split(', ') },
     { key: 'ai', title: t('skills.ai'), items: t('skills.ai_list').split(', ') },
     { key: 'tools', title: t('skills.tools'), items: t('skills.tools_list').split(', ') }
   ];

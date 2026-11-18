@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "./Education.css";
 import TypewriterText from "../TypewriterText/TypewriterText";
 import universityLogo from "../../assets/new-logo.png";
+import graduationCertificate from "../../assets/graduation-certificate.jpeg";
 
 const Education = () => {
   const { t } = useTranslation();
@@ -37,7 +38,19 @@ const Education = () => {
                 />
               </div>
               <div className="education-text">
-                <h3 className="degree">{t("education.degree")}</h3>
+                <div className="education-degree-row">
+                  <h3 className="degree">{t("education.degree")}</h3>
+                  <a
+                    className="education-certificate"
+                    href={graduationCertificate}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t("education.view_certificate")}
+                    title={t("education.view_certificate")}
+                  >
+                    <img src={graduationCertificate} alt={t("education.certificate_alt")} loading="lazy" />
+                  </a>
+                </div>
                 <p className="university">{t("education.university")}</p>
               </div>
             </div>

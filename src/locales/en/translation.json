@@ -17,12 +17,16 @@
   },
   "education": {
     "title": "Education",
-    "degree": "B.S. in Computer Science",
+    "degree": "Bachelor's in Information Technology and Computing",
     "university": "Arab Open University",
     "location": "Saudi Arabia, Riyadh",
-    "date": "May 2026",
+    "date": "July 15, 2026",
     "gpa": "GPA: 3.05/4.0",
-    "coursework": "Coursework: Software Engineering, Operating Systems, Artificial Intelligence, Algorithms, Data Structures, ObjectOriented Programming, Data Management and Analysis"
+    "coursework": "Coursework: Software Engineering, Operating Systems, Artificial Intelligence, Algorithms, Data Structures, ObjectOriented Programming, Data Management and Analysis",
+    "certificate_title": "Graduation Certificate",
+    "certificate_details": "Faculty of Computer Studies ? Spring semester 2025/2026",
+    "certificate_alt": "Arab Open University graduation certificate for Mohammed Maher Salem Batis",
+    "view_certificate": "View full certificate"
   },
   "experience": {
     "title": "Experience",
@@ -44,6 +48,7 @@
   "projects": {
     "title": "Projects",
     "view_project": "View Project",
+    "read_more": "Read more",
     "discover_aseer": {
       "name": "Discover Aseer",
       "date": "Feb 2026",
@@ -87,11 +92,13 @@
     "languages_list": "TypeScript, JavaScript, Python, Java",
     "frontend": "Frontend & UI",
     "frontend_list": "React, Next.js, Tailwind CSS, HeroUI, HTML, CSS",
-    "backend": "Backend & CMS",
-    "backend_list": "Firebase, Directus CMS",
-    "ai": "Al Integration (APIs)",
-    "ai_list": "OpenAl API, Anthropic (Claude) API, Gemini API, Hugging Face",
-    "tools": "Al-Assisted Development & Tools",
-    "tools_list": "GitHub Copilot, Al-Driven IDEs (Antigravity), CLI Automation, Git/GitHub, Figma, Docker, CI-CD-Pipeline, GitHub Action"
+    "backend": "Backend & APIs",
+    "backend_list": "Node.js, NestJS, REST APIs, API Design, Authentication & Authorization, OAuth 2.0, Input Validation, Caching",
+    "ai": "AI Integration",
+    "ai_list": "OpenAI API, Anthropic Claude API, Gemini API, Hugging Face",
+    "tools": "Tools & DevOps",
+    "tools_list": "Git, GitHub, Docker, GitHub Actions, CI/CD, Figma",
+    "databases_list": "PostgreSQL, Supabase, Firebase, Directus CMS",
+    "databases": "Databases & Services"
   }
 }

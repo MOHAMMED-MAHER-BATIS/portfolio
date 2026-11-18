@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { readPreference, savePreference } from "../preferences";
 
 const ThemeContext = createContext();
 
@@ -7,13 +8,12 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme");
-    return savedTheme ? savedTheme : "light";
+    return readPreference("portfolio-theme", ["light", "dark"], "light");
   });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("portfolio-theme", theme);
+    savePreference("portfolio-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {

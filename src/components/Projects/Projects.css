@@ -122,6 +122,43 @@
   flex-direction: column;
 }
 
+.project-read-more {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .project-read-more {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    right: 0;
+    width: fit-content;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-background);
+    color: var(--color-primary);
+    font: var(--text-label-sm);
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+  }
+
+  .project-read-more svg {
+    transform: rotate(90deg);
+  }
+
+  .project-read-more:hover,
+  .project-read-more:focus-visible {
+    border-color: var(--color-primary);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
 .project-card-main .project-content {
   padding: 2rem;
 }
