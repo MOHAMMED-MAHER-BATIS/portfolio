@@ -70,7 +70,7 @@ const Skills = () => {
                     key={index} 
                     className="chip"
                     variants={chipVariants}
-                    whileHover={{ scale: 1.05, backgroundColor: "var(--color-primary)", color: "var(--color-background)" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "var(--color-accent)", color: "var(--color-on-accent)" }}
                   >
                     {item}
                   </motion.span>

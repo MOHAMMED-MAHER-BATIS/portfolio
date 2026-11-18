@@ -82,7 +82,7 @@
   transform: translateY(-2px);
   border-color: var(--color-accent);
   background-color: var(--color-chip-bg);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .role-dot {
@@ -136,14 +136,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background-color: var(--color-primary);
-  color: var(--color-background) !important;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
   font: var(--text-body-md);
   font-weight: 600;
-  text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(0, 35, 102, 0.15);
+  text-decoration: none;
+  box-shadow: 0 4px 14px var(--color-shadow);
   transition:
     transform 0.25s ease,
     background-color 0.25s ease,
@@ -153,9 +153,9 @@
 
 .btn-download-cv:hover {
   transform: translateY(-2px);
-  background-color: var(--color-accent);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
-  color: #ffffff !important;
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 6px 20px var(--color-shadow);
+  color: var(--color-on-accent);
 }
 
 .btn-download-icon {
